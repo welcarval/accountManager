@@ -22,4 +22,8 @@ public class User {
 
     @ManyToMany
     private Collection<Address> addresses;
+
+    public void addAddress(Address address) {
+        addresses.add(address);
+    }
 }
