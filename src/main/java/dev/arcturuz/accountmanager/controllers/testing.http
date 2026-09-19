@@ -1,0 +1,11 @@
+### POST request to example server
+POST localhost:8080/user
+content-type: Application/json
+
+{
+  "firstName": "Welton",
+  "lastName" : "Carvalho",
+  "email" : "weltoncarvalho@gmail.com",
+  "birthDate" : "1995-10-05"
+}
+###
