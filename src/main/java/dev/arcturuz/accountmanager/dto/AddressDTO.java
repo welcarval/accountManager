@@ -1,8 +1,9 @@
 package dev.arcturuz.accountmanager.dto;
 
 public record AddressDTO(
-        String street,
+        String postalCode,
         Integer number,
+        String street,
         String city,
         String country
 ) {

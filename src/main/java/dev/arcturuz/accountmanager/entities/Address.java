@@ -9,14 +9,17 @@ import java.util.Collection;
 @Entity
 @Setter
 @Getter
+@IdClass(AddressId.class)
+@Table(name = "tb_address")
 public class Address {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private String postalCode;
+
+    @Id
+    private Integer number;
 
     private String street;
-    private Integer number;
     private String city;
     private String country;
 

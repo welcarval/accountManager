@@ -29,7 +29,6 @@ public class UserService {
 
     public void insertUser(UserDTO userDTO) {
         User user = userMapper.toEntity(userDTO);
-        System.out.println(user);
         addressRepository.saveAll(user.getAddresses());
         userRepository.save(user);
     }
