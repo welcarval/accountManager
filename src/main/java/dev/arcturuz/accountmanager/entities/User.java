@@ -34,6 +34,7 @@ public class User {
     private Account account;
 
     @ManyToMany
+    @Setter
     private Collection<Address> addresses;
 
     public void addAddress(Address address) {

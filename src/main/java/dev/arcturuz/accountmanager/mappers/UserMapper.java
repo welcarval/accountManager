@@ -4,7 +4,7 @@ import dev.arcturuz.accountmanager.dto.UserDTO;
 import dev.arcturuz.accountmanager.entities.User;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = { AddressMapper.class })
 public interface UserMapper {
 
     UserDTO toDTO(User entity);

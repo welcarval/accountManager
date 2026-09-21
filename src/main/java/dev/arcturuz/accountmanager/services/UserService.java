@@ -6,6 +6,7 @@ import dev.arcturuz.accountmanager.entities.Address;
 import dev.arcturuz.accountmanager.entities.User;
 import dev.arcturuz.accountmanager.mappers.AddressMapper;
 import dev.arcturuz.accountmanager.mappers.UserMapper;
+import dev.arcturuz.accountmanager.repositories.AddressRepository;
 import dev.arcturuz.accountmanager.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,28 +17,31 @@ public class UserService {
 
     private final UserMapper userMapper;
     private final AddressMapper addressMapper;
-    private final UserRepository repository;
+    private final UserRepository userRepository;
+    private final AddressRepository addressRepository;
 
-    public UserService(UserMapper mapper, UserRepository repository, AddressMapper addressMapper) {
+    public UserService(UserMapper mapper, UserRepository repository, AddressMapper addressMapper, AddressRepository addressRepository) {
         this.userMapper = mapper;
-        this.repository = repository;
+        this.userRepository = repository;
         this.addressMapper = addressMapper;
+        this.addressRepository = addressRepository;
     }
 
     public void insertUser(UserDTO userDTO) {
         User user = userMapper.toEntity(userDTO);
         System.out.println(user);
-        repository.save(user);
+        addressRepository.saveAll(user.getAddresses());
+        userRepository.save(user);
     }
 
     public void addAddress(UserDTO userDTO, AddressDTO addressDTO) {
-        Optional<User> optionalUser = repository.findByFirstName(userDTO.firstName());
+        Optional<User> optionalUser = userRepository.findByFirstName(userDTO.firstName());
 
         Address address = addressMapper.toEntity(addressDTO);
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
             user.addAddress(address);
-            repository.save(user);
+            userRepository.save(user);
         }
     }
 }
