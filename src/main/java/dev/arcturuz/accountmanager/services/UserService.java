@@ -20,7 +20,8 @@ public class UserService {
     private final UserRepository userRepository;
     private final AddressRepository addressRepository;
 
-    public UserService(UserMapper mapper, UserRepository repository, AddressMapper addressMapper, AddressRepository addressRepository) {
+    public UserService(UserMapper mapper, UserRepository repository, AddressMapper addressMapper,
+                       AddressRepository addressRepository) {
         this.userMapper = mapper;
         this.userRepository = repository;
         this.addressMapper = addressMapper;

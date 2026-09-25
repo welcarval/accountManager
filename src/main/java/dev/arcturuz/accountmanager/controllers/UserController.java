@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
+// TODO remove this specific CORS config
 @CrossOrigin(origins = "http://localhost:5173")
 public class UserController {
 
