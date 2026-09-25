@@ -14,7 +14,7 @@ import java.util.Collection;
 @Getter
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Setter
@@ -28,16 +28,4 @@ public class User {
 
     @Setter
     private LocalDate birthDate;
-
-    @OneToOne
-    @JoinColumn(name = "id")
-    private Account account;
-
-    @ManyToMany
-    @Setter
-    private Collection<Address> addresses;
-
-    public void addAddress(Address address) {
-        addresses.add(address);
-    }
 }

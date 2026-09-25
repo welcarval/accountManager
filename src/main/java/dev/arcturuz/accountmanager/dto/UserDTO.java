@@ -7,7 +7,6 @@ public record UserDTO(
         String firstName,
         String lastName,
         String email,
-        LocalDate birthDate,
-        List<AddressDTO> addresses
+        LocalDate birthDate
 ) {
 }
